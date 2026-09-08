@@ -30,9 +30,9 @@ Maritime Chat-Law 是面向海事合同争议的多智能体共识系统，结�
 
 ## 模型文件
 
-海事微调模型由 `ShengbinYue/LawLLM-7B` 基座与 `checkpoint-2268` LoRA 适配器共同组成。基座模型不包含在本目录中，LoRA 权重不能独立替代完整基座。
+海事微调模型由 `ShengbinYue/LawLLM-7B` 基座与 `checkpoint-2268` LoRA 适配器共同组成。基座模型需另行下载，放入 `models/LawLLM-7B/`；海事 LoRA 权重及配套分词器文件也需从单独的下载渠道获取，放入 `models/checkpoint-2268/`。LoRA 权重必须与基座配合使用，不能独立替代完整基座。
 
-`models/checkpoint-2268/` 保存以下推理文件：
+`models/checkpoint-2268/` 应包含以下推理文件：
 
 | 文件 | 主要内容 |
 |---|---|
@@ -43,4 +43,3 @@ Maritime Chat-Law 是面向海事合同争议的多智能体共识系统，结�
 | `special_tokens_map.json` | 特殊标记与分词器属性的映射。 |
 | `added_tokens.json` | 新增标记及其编号。 |
 | `vocab.json` | 词表中的标记与编号映射。 |
-
