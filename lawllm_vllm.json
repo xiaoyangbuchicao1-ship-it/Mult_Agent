@@ -1,0 +1,55 @@
+{
+  "name": "lawllm_checkpoint_2268_paper_roles",
+  "model_role": "ShengbinYue/LawLLM-7B with user-supplied maritime LoRA checkpoint-2268; vLLM adapter endpoint",
+  "case_file": "data/case_paper_roles.json",
+  "generation": {
+    "model": "maritime-chat-law",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "api_key_env": "VLLM_API_KEY",
+    "allow_empty_key": true,
+    "temperature": 0.3,
+    "top_p": 1.0,
+    "max_tokens": 4096,
+    "structured_final": true,
+    "extra_body": {}
+  },
+  "judge": {
+    "model": "maritime-chat-law",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "api_key_env": "VLLM_API_KEY",
+    "allow_empty_key": true,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 4096,
+    "extra_body": {
+      "guided_regex": "<score>(0(\\.[0-9]+)?|1(\\.0+)?)</score>"
+    }
+  },
+  "experiment": {
+    "window": "fixed",
+    "max_interactions": 4,
+    "group_threshold": null,
+    "gamma": 0.8,
+    "bilateral_turns": 3,
+    "route_mode": "lowest_pair",
+    "tie_seed": 20260908,
+    "feedback_mode": "all_agents",
+    "max_workers": 5,
+    "summary_max_tokens": 4096,
+    "dialogue_max_tokens": 4096,
+    "pair_writeback_mode": "agreement_aware_v1",
+    "bilateral_prompt_mode": "appendix_consensus_v1"
+  },
+  "checkpoint_provenance": {
+    "base_model": "ShengbinYue/LawLLM-7B",
+    "downloaded_base_revision": "abc510f9f5f8be2676c13f7786c78d775496f857",
+    "adapter_name": "maritime-chat-law",
+    "checkpoint_path": "/root/autodl-tmp/maritime-lawllm/models/checkpoint-2268",
+    "merged_or_lora": "lora",
+    "rank": 8,
+    "alpha": 32,
+    "weights_sha256": "c8b98894b2263453d348cf1f0a6a78c23a228b22629c600ee67f949eacdecb9e",
+    "tokenizer_and_chat_template": "checkpoint-2268/tokenizer_config.json; training template=default, Human/Assistant format",
+    "original_base_revision": "not recorded in supplied adapter metadata; downloaded revision must be pinned separately"
+  }
+}
